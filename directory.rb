@@ -1,16 +1,16 @@
 #This is an array of students
 students = [
-"Lord Voldemort",
-"Doctor Robotnik",
-"Freddy Vorhees",
-"M Bison",
-"Kefka",
-"Terminator",
-"The Riddler",
-"Patrick Bateman",
-"Robert Killgrave",
-"Uchiha Sasuke",
-"Yagami Light"
+{name: "Lord Voldemort", cohort: :november},
+{name: "Doctor Robotnik", cohort: :november},
+{name: "Freddy Vorhees", cohort: :november},
+{name: "M Bison", cohort: :november},
+{name: "Kefka", cohort: :november},
+{name: "Terminator", cohort: :november},
+{name: "The Riddler", cohort: :november},
+{name: "Patrick Bateman", cohort: :november},
+{name: "Robert Killgrave", cohort: :november},
+{name: "Uchiha Sasuke", cohort: :november},
+{name: "Yagami Light", cohort: :november}
 ]
 
 def print_header
@@ -18,9 +18,9 @@ def print_header
 puts "------------"
 end
 
-def print(names)
-names.each do |name|
-  puts name
+def print(students)
+students.each do |student|
+  puts "#{student[:name]} (#{student[:cohort]} cohort)"
 end
 end
 
