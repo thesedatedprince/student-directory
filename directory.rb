@@ -24,8 +24,10 @@ puts "------------"
 end
 
 def print(students)
-students.each_with_index do |student, index|
+students.each_with_index.select do |student, index|
+  if student[:name].downcase.start_with?('h')
   puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
+  end
 end
 end
 
