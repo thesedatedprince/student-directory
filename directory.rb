@@ -1,17 +1,22 @@
-#This is an array of students
-students = [
-{name: "Lord Voldemort", cohort: :november},
-{name: "Doctor Robotnik", cohort: :november},
-{name: "Freddy Vorhees", cohort: :november},
-{name: "M Bison", cohort: :november},
-{name: "Kefka", cohort: :november},
-{name: "Terminator", cohort: :november},
-{name: "The Riddler", cohort: :november},
-{name: "Patrick Bateman", cohort: :november},
-{name: "Robert Killgrave", cohort: :november},
-{name: "Uchiha Sasuke", cohort: :november},
-{name: "Yagami Light", cohort: :november}
-]
+#This method controls student input
+def input_students
+  puts "Please enter the names of the students"
+  puts "To finish, just hit return twice."
+  #We create an empty array
+  students =[]
+  #first, we ask for the first name
+  name = gets.chomp
+  # While name is not empty, we repeat this code
+  while !name.empty? do
+    #add the student hash to the array
+    students << {name: name, cohort: :november}
+    puts "Now we have #{students.count} students."
+    # Now we ask for another name from the user
+    name = gets.chomp
+    end
+  #And we return the array of students
+  students
+  end
 
 def print_header
   puts "The students of Villains Academy"
@@ -29,6 +34,7 @@ puts "Overall, we have #{names.count} great students."
 end
 # now, we call the methods
 
+students = input_students
 print_header
 print(students)
 print_footer(students)
