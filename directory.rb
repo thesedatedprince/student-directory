@@ -23,11 +23,27 @@ def print_header
 puts "------------"
 end
 
+=begin
+
+commented out to rewrite method using while loop
+
 def print(students)
 students.each_with_index.select do |student, index|
   if student[:name].downcase.start_with?('h') && student[:name].length <= 12
   puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
   end
+end
+end
+=end
+
+def print(students)
+  count = 0
+  until count == students.length
+students.each do |student|
+  puts "#{student[:name]} (#{student[:cohort]} cohort)"
+  count += 1
+  puts "#{count}"
+end
 end
 end
 
