@@ -6,6 +6,20 @@ def input_students
   students =[]
   #first, we ask for the first name
   name = gets.chomp
+  puts "Now enter #{name}'s cohort"
+  cohort = gets.chomp
+  if cohort == ''
+    cohort = 'November'
+  end
+  until cohort.capitalize == 'January' || cohort.capitalize == 'February' ||
+    cohort.capitalize == 'March' || cohort.capitalize == 'April' ||
+    cohort.capitalize == 'May' || cohort.capitalize == 'June' ||
+    cohort.capitalize == 'July' || cohort.capitalize =='August' ||
+    cohort.capitalize == 'September' || cohort.capitalize =='October' ||
+    cohort.capitalize =='November' || cohort.capitalize == 'December'
+    puts "I think you made a typo. Please re-enter"
+    cohort = gets.chomp
+  end
   puts "Now enter #{name}'s hobby."
   hobby = gets.chomp
   puts "Now enter #{name}'s country of birth."
@@ -15,7 +29,7 @@ def input_students
   # While name is not empty, we repeat this code
   while !name.empty? do
     #add the student hash to the array
-    students << {name: name, cohort: :november, hobby: hobby, country: country,
+    students << {name: name, cohort: cohort, hobby: hobby, country: country,
                 height: height}
     puts "Now we have #{students.count} students."
     # Now we ask for another name from the user
@@ -23,6 +37,21 @@ def input_students
     name = gets.chomp
     if name == ''
       break
+    end
+    puts "Now enter #{name}'s cohort"
+    cohort = ''
+    cohort = gets.chomp
+    if cohort == ''
+      cohort = 'November'
+    end
+    until cohort.capitalize == 'January' || cohort.capitalize == 'February' ||
+      cohort.capitalize == 'March' || cohort.capitalize == 'April' ||
+      cohort.capitalize == 'May' || cohort.capitalize == 'June' ||
+      cohort.capitalize == 'July' || cohort.capitalize =='August' ||
+      cohort.capitalize == 'September' || cohort.capitalize =='October' ||
+      cohort.capitalize =='November' || cohort.capitalize == 'December'
+      puts "I think you made a typo. Please re-enter"
+      cohort = gets.chomp
     end
     puts "Now enter #{name}'s hobby"
     hobby = gets.chomp
