@@ -57,11 +57,12 @@ def print(students)
   count = 0
   until count == students.length
 students.each do |student|
-  puts "#{student[:name]} (#{student[:cohort]} cohort)
-  (Hobbies: #{student[:hobby]}) (Country of Birth: #{student[:country]} 
-  (Height: #{student[:height]}))"
+  puts "#{student[:name]}
+  (#{student[:cohort]} cohort)
+  (Hobbies: #{student[:hobby]})
+  (Country of Birth: #{student[:country]})
+  (Height: #{student[:height]})".center(50)
   count += 1
-  puts "#{count}"
 end
 end
 end
