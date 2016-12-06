@@ -13,12 +13,22 @@ students = [
 "Yagami Light"
 ]
 
-#This prints the students by index number in the array
-puts "The students of Villains Academy"
+def print_header
+  puts "The students of Villains Academy"
 puts "------------"
-students.each do |student|
-  puts student
 end
 
-# next, we print the total number of students
-puts "Overall, we have #{students.count} great students."
+def print(names)
+names.each do |name|
+  puts name
+end
+end
+
+def print_footer(names)
+puts "Overall, we have #{names.count} great students."
+end
+# now, we call the methods
+
+print_header
+print(students)
+print_footer(students)
