@@ -44,10 +44,10 @@ def options_list(selection)
   when "4"
     load_students
   when "9"
+    puts "Exiting Program."
     exit
   else
     puts "I don't know what you meant, try again."
-
   end
 end
 
@@ -83,6 +83,7 @@ def save_students
     csv_line = student_data.join(",")
     file.puts csv_line
   end
+  puts "File succesfully saved."
   file.close
 end
 
@@ -92,6 +93,7 @@ def load_students(filename = "students.csv")
     @name, cohort = line.chomp.split(',')
     add_students
   end
+  puts "File successfully loaded."
   file.close
 end
 
