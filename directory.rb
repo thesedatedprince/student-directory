@@ -5,9 +5,9 @@ def input_students
   #We create an empty array
   students =[]
   #first, we ask for the first name
-  name = gets.chomp
+  name = gets.chop
   puts "Now enter #{name}'s cohort"
-  cohort = gets.chomp
+  cohort = gets.chop
   if cohort == ''
     cohort = 'November'
   end
@@ -18,14 +18,14 @@ def input_students
     cohort.capitalize == 'September' || cohort.capitalize =='October' ||
     cohort.capitalize =='November' || cohort.capitalize == 'December'
     puts "I think you made a typo. Please re-enter"
-    cohort = gets.chomp
+    cohort = gets.chop
   end
   puts "Now enter #{name}'s hobby."
-  hobby = gets.chomp
+  hobby = gets.chop
   puts "Now enter #{name}'s country of birth."
-  country = gets.chomp
+  country = gets.chop
   puts "Now enter #{name}'s height."
-  height = gets.chomp
+  height = gets.chop
   # While name is not empty, we repeat this code
   while !name.empty? do
     #add the student hash to the array
