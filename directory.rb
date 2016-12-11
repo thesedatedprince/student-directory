@@ -83,6 +83,10 @@ end
 =end
 
 def print(students)
+  if students.length == 0
+    puts "There are no students."
+  else
+
   students.sort!{|a, b| a[:cohort]<=>b[:cohort]}
   count = 0
   until count == students.length
@@ -97,6 +101,8 @@ students.each do |student|
 end
 end
 end
+end
+
 
 def print_footer(names)
   if names.count == 1
