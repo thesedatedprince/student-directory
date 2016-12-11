@@ -33,7 +33,7 @@ def show_students
   print_footer
 end
 
-def process(selection)
+def options_list(selection)
   case selection
   when "1"
     students = input_students
@@ -54,7 +54,7 @@ end
 def interactive_menu
   loop do
     print_menu
-    process(STDIN.gets.chomp)
+    options_list(STDIN.gets.chomp)
   end
 end
 
