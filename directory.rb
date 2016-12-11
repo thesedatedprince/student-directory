@@ -1,9 +1,8 @@
+@students =[]
 #This method controls student input
 def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice."
-  #We create an empty array
-  students =[]
   #first, we ask for the first name
   name = gets.chop
   puts "Now enter #{name}'s cohort"
@@ -29,9 +28,9 @@ def input_students
   # While name is not empty, we repeat this code
   while !name.empty? do
     #add the student hash to the array
-    students << {name: name, cohort: cohort, hobby: hobby, country: country,
+    @students << {name: name, cohort: cohort, hobby: hobby, country: country,
                 height: height}
-    puts "Now we have #{students.count} students."
+    puts "Now we have #{@students.count} students."
     # Now we ask for another name from the user
     puts "Please type in the next student or hit enter to finish"
     name = gets.chomp
@@ -61,29 +60,39 @@ def input_students
     height = gets.chomp
     end
   #And we return the array of students
-  students
+
   end
 
-def interactive_menu
-  students = []
-  loop do
-    puts "1. Input the students"
-    puts "2. Show the students"
-    puts "9. Exit"
-    selection = gets.chomp
-    case selection
-    when "1"
-      students = input_students
-    when "2"
-      print_header
-      print(students)
-      print_footer(students)
-    when "9"
-      exit
-    else
-      puts "I don't know what you meant, try again."
+def print_menu
+  puts "1. Input the students"
+  puts "2. Show the students"
+  puts "9. Exit"
+end
 
-    end
+def show_students
+  print_header
+  print_students_list
+  print_footer
+end
+
+def process(selection)
+  case selection
+  when "1"
+    students = input_students
+  when "2"
+    show_students
+  when "9"
+    exit
+  else
+    puts "I don't know what you meant, try again."
+
+  end
+end
+
+def interactive_menu
+  loop do
+    print_menu
+    process(gets.chomp)
   end
 end
 
@@ -105,16 +114,16 @@ end
 end
 =end
 
-def print(students)
-  if students.length == 0
+def print_students_list
+  if @students.length == 0
     puts "There are no students."
   else
 
-  students.sort!{|a, b| a[:cohort]<=>b[:cohort]}
+  @students.sort!{|a, b| a[:cohort]<=>b[:cohort]}
   count = 0
-  until count == students.length
+  until count == @students.length
 
-students.each do |student|
+@students.each do |student|
   puts "#{student[:name]}
   (#{student[:cohort]} cohort)
   (Hobbies: #{student[:hobby]})
@@ -127,12 +136,8 @@ end
 end
 
 
-def print_footer(names)
-  if names.count == 1
-    puts "Overall, we have #{names.count} great student."
-  else
-puts "Overall, we have #{names.count} great students."
-end
+def print_footer
+puts "Overall, we have #{@students.count} great students."
 end
 # now, we call the methods
 
