@@ -83,8 +83,10 @@ end
 =end
 
 def print(students)
+  students.sort!{|a, b| a[:cohort]<=>b[:cohort]}
   count = 0
   until count == students.length
+
 students.each do |student|
   puts "#{student[:name]}
   (#{student[:cohort]} cohort)
