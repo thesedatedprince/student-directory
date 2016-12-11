@@ -99,7 +99,11 @@ end
 end
 
 def print_footer(names)
+  if names.count == 1
+    puts "Overall, we have #{names.count} great student."
+  else
 puts "Overall, we have #{names.count} great students."
+end
 end
 # now, we call the methods
 
