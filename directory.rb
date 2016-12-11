@@ -1,3 +1,5 @@
+require 'csv'
+
 @students =[]
 #This method controls student input
 def input_students
@@ -95,12 +97,10 @@ def load_students(filename = "students.csv")
   if filename == ""
     filename = "students.csv"
   end
-  file = File.open(filename, "r") do |f2|
-  f2.readlines.each do |line|
-    @name, cohort = line.chomp.split(',')
+  file = CSV.foreach(filename) do |f2|
+    @name, cohort
     add_students
   end
-end
   puts "File successfully loaded."
 end
 
