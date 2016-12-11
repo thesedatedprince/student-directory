@@ -4,15 +4,20 @@ def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice."
   #first, we ask for the first name
-  name = STDIN.gets.chomp
-  while !name.empty? do
+  @name = STDIN.gets.chomp
+  while !@name.empty? do
     #add the student hash to the array
-    @students << {name: name, cohort: :november}
+    add_students
     puts "Now we have #{@students.count} students."
     # Now we ask for another name from the user
-    name = STDIN.gets.chomp
+    @name = STDIN.gets.chomp
     end
   end
+
+def add_students
+  cohort = :november
+  @students << {name: @name, cohort: cohort.to_sym}
+end
 
 def print_menu
   puts "1. Input the students"
@@ -85,7 +90,7 @@ def load_students(filename = "students.csv")
   file = File.open(filename, "r")
   file.readlines.each do |line|
     name, cohort = line.chomp.split(',')
-    @students << {name: name, cohort: cohort.to_sym}
+    add_students
   end
   file.close
 end
